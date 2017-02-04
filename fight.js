@@ -1,52 +1,30 @@
-function Animal(xp, nameAnimal, f, resistance) {
-	this.xp = xp;
+function Animal(hp, nameAnimal, strength, resistance) {
+	this.hp = hp;
 	this.nameAnimal = nameAnimal;
-	this.f = f;
+	this.strength = strength;
 	this.resistance = resistance;
 }
 
+Animal.prototype.fight = function (enemy) {
+  var hit_power= randInterval(this.strength - 5,this.strength + 5);
 
-function FRand (max, min, x) {
-	rand = Math.round(Math.random()*(max-min)+x);
-	return rand;
-}
+  if (Math.round(Math.random()*10) == 1 ){
+  	hit_power *= 1.7;
+  	console.log(this.nameAnimal + " made critical Hit!!!");
+  }
 
-
- //dont hiss - I want train to use timer
-var timer = setInterval(function() {
-	 console.log("be ready");
-	}, 1000);
+   enemy.resist(Math.round(hit_power)/**/);
  
-
-setTimeout(function() {
-clearInterval(timer);
-console.log("go");
-}, 4000);
-
-
-Animal.prototype.fight = function () {
- var Feasy = FRand(10, 1, 0);
- var Fmiddle = FRand(50, 10, 10);
- var Fkill = FRand(100, 50, 50);
- 
- console.log(this.nameAnimal + this.xp +"fight" + Fkill); //  в будущем тут этого не будет. все будет в resist
+ //console.log(this.nameAnimal + this.hp +"fight" + Fkill); //  в будущем тут этого не будет. все будет в resist
 }
 
 // here should be all my computing
-Animal.prototype.resist = function() {
-	
-	  // console.log(this.xp + " " + this.nameAnimal + " attacted you." );
-	var choiceAnimal = Number(confirm("choose Animal: 0 - Snake, 1 - Ratatu "));
-	
-	for(;;) {
-		
-		switch(choiceAnimal){
-			case 0:
-			
-		}
-	}
-}
+Animal.prototype.resist = function(hit_power) {
 
+	 console.log(this.nameAnimal + "["+this.hp+"/100] got hit on " + (hit_power- this.resistance) + " points. hp left [" + (this.hp -= hit_power - this.resistance) +"/100]" );
+	 
+	 //console.log("hp left [" + this.hp +"/100]");
+}
 
 function Snake() {
 	Animal.apply(this,arguments);
@@ -63,6 +41,37 @@ Ratatu.prototype.constructor = Animal;
 
 
 
+function randInterval (min, max) {
+	rand = Math.round(Math.random()*(max-min)+min);
+	return rand;
+}
+
 //new Snake(100, "egor", 78, 40).fight();
-new Ratatu(100, "diksy", 98, 20).fight();
+var snake = new Snake(100, "Snake", 20, 4);
+var rat = new Ratatu(100, "Cookrat", 10, 4);
+
+
+	rat.fight(snake);
+	snake.fight(rat);
+
+	rat.fight(snake);
+	snake.fight(rat);
+
+
+	rat.fight(snake);
+	snake.fight(rat);
+
+
+
+ //dont hiss - I want train to use timer
+var timer = setInterval(function() {
+	//console.log("step");
+}, 1000);
+ 
+
+//setTimeout(function() {
+//clearInterval(timer);
+//console.log("go");
+//}, 4000);
+
 
