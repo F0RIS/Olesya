@@ -6,26 +6,29 @@ function Animal(hp, nameAnimal, strength, resistance) {
 }
 
 Animal.prototype.fight = function (enemy) {
+	do {
+		var hit_power = randInterval(this.strength - 5,this.strength + 5);
 
-	var hit_power= randInterval(this.strength - 5,this.strength + 5);
 
 		if (Math.round(Math.random()*10) == 1 ){
 			hit_power *= 1.7;
 			console.log(this.nameAnimal + " made critical Hit!!!");
 		}
-
 		enemy.resist(Math.round(hit_power)/**/);
+	} while(hp_left > 0)
+
+	console.log(this.nameAnimal + "is winner");
 }
 
 
 // here should be all my computing
 Animal.prototype.resist = function(hit_power) {
 
-		while(this.hp >= 0) {
-	 	console.log(this.nameAnimal + "["+this.hp+"/100] got hit on " + (hit_power- this.resistance) + " points. hp left [" + (this.hp -= hit_power - this.resistance) +"/100]" );
-	 	}
-	 console.log(this.nameAnimal + " lost");
+	console.log(this.nameAnimal + "["+this.hp +"/100] got hit on " + (hit_power- this.resistance) + " points. hp left [" + (hp_left = this.hp-(hit_power - this.resistance)) +"/100]" );
+	// console.log(hp_left + '\n');
+	this.hp = hp_left;
 }
+
 
 function Snake() {
 	Animal.apply(this,arguments);
@@ -47,9 +50,12 @@ function randInterval (min, max) {
 	return rand;
 }
 
+
 //new Snake(100, "egor", 78, 40).fight();
 var snake = new Snake(100, "Snake", 20, 4);
 var rat = new Ratatu(100, "Cookrat", 10, 4);
+
+
 
 
 	rat.fight(snake);
