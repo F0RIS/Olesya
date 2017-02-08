@@ -25,10 +25,22 @@ Animal.prototype.fight = function (enemy) {
 Animal.prototype.resist = function(hit_power) {
 
 	console.log(this.nameAnimal + "["+this.hp +"/100] got hit on " + (hit_power- this.resistance) + " points. hp left [" + (hp_left = this.hp-(hit_power - this.resistance)) +"/100]" );
-	// console.log(hp_left + '\n');
+	// console.log(hp_left + '\n');---
 	this.hp = hp_left;
 }
 
+Animal.prototype.isAlive = function(animal, enemy) {
+	if (animal.hp > 0 ){
+		console.log(animal.hp);
+		console.log( this.nameAnimal + " attact " );
+		animal.fight(snake);
+	}  else if (enemy.hp > 0){
+		// console.log( this.nameAnimal + " attact ")
+		animal.fight(rat);
+	}
+		console.log("oops. call later. everybody died");
+
+}
 
 function Snake() {
 	Animal.apply(this,arguments);
@@ -44,7 +56,6 @@ Ratatu.prototype = Object.create(Animal.prototype);
 Ratatu.prototype.constructor = Animal;
 
 
-
 function randInterval (min, max) {
 	rand = Math.round(Math.random()*(max-min)+min);
 	return rand;
@@ -58,15 +69,16 @@ var rat = new Ratatu(100, "Cookrat", 10, 4);
 
 
 
-	rat.fight(snake);
-	snake.fight(rat);
+	rat.isAlive(rat, snake);
+	snake.isAlive(snake, rat);
+	rat.isAlive(rat, snake);
 
 
 
  //dont hiss - I want train to use timer
-var timer = setInterval(function() {
-	//console.log("step");
-}, 1000);
+// var timer = setInterval(function() {
+// 	//console.log("step");
+// }, 1000);
 
 
 //setTimeout(function() {
