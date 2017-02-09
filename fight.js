@@ -5,17 +5,25 @@ function Animal(hp, nameAnimal, strength, resistance) {
 	this.resistance = resistance;
 }
 
+Animal.prototype.isAlive = function () {
+	if (this.hp > 0) {
+		return true;
+	}
+	console.log(this.nameAnimal + " tired ");
+	return false;
+}
+
 Animal.prototype.fight = function (enemy) {
-  var hit_power= randInterval(this.strength - 5,this.strength + 5);
 
-  if (Math.round(Math.random()*10) == 1 ){
-  	hit_power *= 1.7;
-  	console.log(this.nameAnimal + " made critical Hit!!!");
-  }
+	var hit_power= randInterval(this.strength - 5,this.strength + 5);
 
-   enemy.resist(Math.round(hit_power)/**/);
- 
- //console.log(this.nameAnimal + this.hp +"fight" + Fkill); //  в будущем тут этого не будет. все будет в resist
+	if (Math.round(Math.random()*10) == 1 ){
+		hit_power *= 1.7;
+		console.log(this.nameAnimal + " made critical Hit!!!");
+	}
+
+	enemy.resist(Math.round(hit_power)/**/);
+  //console.log(this.nameAnimal + this.hp +"fight" + Fkill); //  в будущем тут этого не будет. все будет в resist
 }
 
 // here should be all my computing
@@ -50,23 +58,20 @@ function randInterval (min, max) {
 var snake = new Snake(100, "Snake", 20, 4);
 var rat = new Ratatu(100, "Cookrat", 10, 4);
 
+for (var i=0; i<20; i++) {
 
-	rat.fight(snake);
-	snake.fight(rat);
-
-	rat.fight(snake);
-	snake.fight(rat);
-
-
-	rat.fight(snake);
-	snake.fight(rat);
+	if (rat.isAlive() == true || snake.isAlive() == true) {
+		rat.fight(snake);
+		snake.fight(rat);
+	}	else console.log("everybody dont want to fight");
+}
 
 
 
  //dont hiss - I want train to use timer
-var timer = setInterval(function() {
-	//console.log("step");
-}, 1000);
+// var timer = setInterval(function() {
+// 	//console.log("step");
+// }, 1000);
  
 
 //setTimeout(function() {
