@@ -21,17 +21,14 @@ Animal.prototype.fight = function (enemy) {
 		hit_power *= 1.7;
 		console.log(this.nameAnimal + " made critical Hit!!!");
 	}
-
 	enemy.resist(Math.round(hit_power)/**/);
-  //console.log(this.nameAnimal + this.hp +"fight" + Fkill); //  в будущем тут этого не будет. все будет в resist
+  
 }
 
 // here should be all my computing
 Animal.prototype.resist = function(hit_power) {
 
 	console.log(this.nameAnimal + "["+this.hp+"/100] got hit on " + (hit_power- this.resistance) + " points. hp left [" + (this.hp -= hit_power - this.resistance) +"/100]" );
-
-	 //console.log("hp left [" + this.hp +"/100]");
 	}
 
 	function Snake() {
@@ -54,12 +51,10 @@ Animal.prototype.resist = function(hit_power) {
 		return rand;
 	}
 
-//new Snake(100, "egor", 78, 40).fight();
 var snake = new Snake(100, "Snake", 20, 4);
 var rat = new Ratatu(100, "Cookrat", 10, 4);
 
 while (true) {
-
 	if (rat.isAlive() && snake.isAlive()) {
 		rat.fight(snake);
 		snake.fight(rat);
@@ -68,7 +63,6 @@ while (true) {
 	} else if (snake.isAlive()) {
 		rat.fight(snake);
 	} else break;
-
 } console.log("everybody dont want to fight") ;
 
 
