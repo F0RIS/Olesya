@@ -70,10 +70,12 @@ while (true) {
 	if (rat.isAlive() && snake.isAlive()) {
 		rat.fight(snake);
 		snake.fight(rat);
-	}  else  if(rat.hp>0) {
-		console.log("winner is  " + rat.nameAnimal ); }
-		 else  { 
-		 	console.log("winner is " + snake.nameAnimal );}
+	}  else  if (rat.hp > 0) {
+		console.log("winner is  " + rat.nameAnimal ); 
+	}	 else {
+		 	console.log("winner is " + snake.nameAnimal ); 
+		 	break;
+		 }
 }
 
 
