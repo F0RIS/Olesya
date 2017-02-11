@@ -9,7 +9,6 @@ Animal.prototype.isAlive = function () {
 	if (this.hp > 0) {
 		return true;
 	}
-	console.log(this.nameAnimal + " tired ");
 	return false;
 }
 
@@ -54,17 +53,28 @@ Animal.prototype.resist = function(hit_power) {
 var snake = new Snake(100, "Snake", 20, 4);
 var rat = new Ratatu(100, "Cookrat", 10, 4);
 
+// while (true) {
+// 	if (rat.isAlive() && snake.isAlive()) {
+// 		rat.fight(snake);
+// 		snake.fight(rat);
+// 	} else if (rat.isAlive()) {
+// 		snake.fight(rat);
+// 		console.log(this.nameAnimal + " winner");
+// 	} else if (snake.isAlive()) {
+// 		rat.fight(snake);
+// 	} else break;
+// } console.log("everybody dont want to fight") ;
+
+
 while (true) {
 	if (rat.isAlive() && snake.isAlive()) {
 		rat.fight(snake);
 		snake.fight(rat);
-	} else if (rat.isAlive()) {
-		snake.fight(rat);
-	} else if (snake.isAlive()) {
-		rat.fight(snake);
-	} else break;
-} console.log("everybody dont want to fight") ;
-
+	}  else  if(rat.hp>0) {
+		console.log("winner is  " + rat.nameAnimal ); }
+		 else  { 
+		 	console.log("winner is " + snake.nameAnimal );}
+}
 
 
  //dont hiss - I want train to use timer
