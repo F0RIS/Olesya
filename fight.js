@@ -66,7 +66,8 @@ var rat = new Ratatu(100, "Cookrat", 10, 4);
 // } console.log("everybody dont want to fight") ;
 
 
-while (true) {
+// while (true) 
+setInterval (function() {
 	if (rat.isAlive() && snake.isAlive()) {
 		rat.fight(snake);
 		snake.fight(rat);
@@ -74,10 +75,9 @@ while (true) {
 		console.log("winner is  " + rat.nameAnimal ); 
 	}	 else {
 		 	console.log("winner is " + snake.nameAnimal ); 
-		 	break;
+		 	// break;
 		 }
-}
-
+}, 2000);
 
  //dont hiss - I want train to use timer
 // var timer = setInterval(function() {
