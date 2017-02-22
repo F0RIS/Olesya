@@ -17,10 +17,7 @@ Animal.prototype.fight = function (enemy) {
 		hit_power *= 1.7;
 		console.log(this.nameAnimal + " made critical Hit!!!");
 
-		if (this.resistance > hit_power) {
-			hit_power = 0;
-		// console.log (hit_power);
-		}
+		
 
 	}
 	 console.log (hit_power);
@@ -30,9 +27,14 @@ Animal.prototype.fight = function (enemy) {
 
 // here should be all my computing
 Animal.prototype.resist = function(hit_power) {
-console.log (hit_power);
-	  console.log (this.resistance);
+	
+	console.log (hit_power);
+	console.log (this.resistance);
 	console.log(this.nameAnimal + "["+this.hp+"/100] got hit on " + (hit_power- this.resistance) + " points. hp left [" + (this.hp -= hit_power - this.resistance) +"/100]" );
+	if (this.resistance > hit_power) {
+			hit_power = 0;
+		// console.log (hit_power);
+		}
 }
 
 function Snake() {
