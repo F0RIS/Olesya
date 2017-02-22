@@ -1,6 +1,6 @@
 # The Great Beginning....
 
-Tasks for ?? to learn basic OOP aproaches
+Tasks for 🦊 to learn basic OOP aproaches
 
 ## Fight task
 - [x] Create class Animal :lion::cat::dog:  with basic params (name, strenght, hp, resistance);
