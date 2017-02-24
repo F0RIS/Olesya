@@ -16,25 +16,16 @@ Animal.prototype.fight = function (enemy) {
 	if (Math.round(Math.random() * 10) == 1 ){
 		hit_power *= 1.7;
 		console.log(this.nameAnimal + " made critical Hit!!!");
-
-		
-
 	}
-	 console.log (hit_power);
-	  console.log (this.resistance);
 	enemy.resist(Math.round(hit_power)/**/);
 }
 
 // here should be all my computing
 Animal.prototype.resist = function(hit_power) {
-	
-	console.log (hit_power);
-	console.log (this.resistance);
-	console.log(this.nameAnimal + "["+this.hp+"/100] got hit on " + (hit_power- this.resistance) + " points. hp left [" + (this.hp -= hit_power - this.resistance) +"/100]" );
 	if (this.resistance > hit_power) {
-			hit_power = 0;
-		// console.log (hit_power);
-		}
+		hit_power = this.resistance;
+	}
+	console.log(this.nameAnimal + "["+this.hp+"/100] got hit on " + (hit_power- this.resistance) + " points. hp left [" + (this.hp -= hit_power - this.resistance) +"/100]" );
 }
 
 function Snake() {
@@ -79,35 +70,30 @@ var rat = new Ratatu(100, "Cookrat", 10, 4);
 var pinguin = new Pinguin(100, "Pinguin", 40, 20);
 var lion = new Lion(100, "Lion", 30, 5)
 
-var animals_mas = [snake, rat, pinguin, lion];
-var countEnemy = 4;
+var fighters = [snake, rat, pinguin, lion];
+var stages = fighters.length / 2; //2 fighters for every fight
 
-function randEnemy (countEnemy) {
+/*function randEnemy (countEnemy) {
 	rand = Math.round(Math.random() * (countEnemy - 0) + 0);
 	return rand;
-}
+}*/
 
-function play(enemy1, enemy2) {
+function fight(animal1, animal2) {
 	var timer = setInterval(function() {
 
-	if (enemy1.isAlive() && enemy2.isAlive()) {
-		enemy1.fight(enemy2);
-		enemy2.fight(enemy1);
+	if (animal1.isAlive() && animal2.isAlive()) {
+		animal1.fight(animal2);
+		animal2.fight(animal1);
 		console.log("\n")
 	} else {
 		clearInterval(timer);
 
-		var winner = enemy1.isAlive() ? enemy1 : enemy2;
+		var winner = animal1.isAlive() ? animal1 : animal2;
 		console.log("The winner is  " + winner.nameAnimal); 
 	}
  }, 1000);
 }
 
 
-play(snake, pinguin);
-
-
-
-
-
+fight(snake, pinguin);
 
