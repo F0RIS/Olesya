@@ -1,99 +1,68 @@
-function Animal(hp, nameAnimal, strength, resistance) {
-	this.hp = hp;
-	this.nameAnimal = nameAnimal;
-	this.strength = strength;
-	this.resistance = resistance;
-}
-
-Animal.prototype.isAlive = function () {
-	return this.hp > 0 ? true : false;
-}
-
-Animal.prototype.fight = function (enemy) {
-
-	var hit_power= randInterval(this.strength - 5,this.strength + 5);
-
-	if (Math.round(Math.random() * 10) == 1 ){
-		hit_power *= 1.7;
-		console.log(this.nameAnimal + " made critical Hit!!!");
-	}
-	enemy.resist(Math.round(hit_power)/**/);
-}
-
-// here should be all my computing
-Animal.prototype.resist = function(hit_power) {
-	if (this.resistance > hit_power) {
-		hit_power = this.resistance;
-	}
-	console.log(this.nameAnimal + "["+this.hp+"/100] got hit on " + (hit_power- this.resistance) + " points. hp left [" + (this.hp -= hit_power - this.resistance) +"/100]" );
-}
-
-function Snake() {
-	Animal.apply(this,arguments);
-}
-Snake.prototype = Object.create(Animal.prototype);
-Snake.prototype.constructor = Animal;
-
-
-function Ratatu() {
-	Animal.apply(this,arguments);
-}
-
-Ratatu.prototype = Object.create(Animal.prototype);
-Ratatu.prototype.constructor = Animal;
-
-function Lion() {
-	Animal.apply(this.arguments);
-}
-
-Lion.prototype = Object.create(Animal.prototype);
-Lion.prototype.constructor = Animal;
-
-function Pinguin() {
-	Animal.apply(this, arguments);
-}
-
-Pinguin.prototype = Object.create(Animal.prototype);
-Pinguin.prototype.constructor = Animal;
-
-
-
-function randInterval (min, max) {
-	rand = Math.round(Math.random() * (max - min) + min);
-	return rand;
-}
-
-console.log("");
-
-var snake = new Snake(100, "Snake", 20, 4);
-var rat = new Ratatu(100, "Cookrat", 10, 4);
-var pinguin = new Pinguin(100, "Pinguin", 40, 20);
-var lion = new Lion(100, "Lion", 30, 5)
-
-var fighters = [snake, rat, pinguin, lion];
-var stages = fighters.length / 2; //2 fighters for every fight
-
-/*function randEnemy (countEnemy) {
-	rand = Math.round(Math.random() * (countEnemy - 0) + 0);
-	return rand;
-}*/
-
-function fight(animal1, animal2) {
-	var timer = setInterval(function() {
-
-	if (animal1.isAlive() && animal2.isAlive()) {
-		animal1.fight(animal2);
-		animal2.fight(animal1);
-		console.log("\n")
-	} else {
-		clearInterval(timer);
-
-		var winner = animal1.isAlive() ? animal1 : animal2;
-		console.log("The winner is  " + winner.nameAnimal); 
-	}
- }, 1000);
-}
-
-
-fight(snake, pinguin);
-
+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
