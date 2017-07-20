@@ -12,3 +12,11 @@ function sayBye() {
 }
 
 sayBye(1);
+// I liked this task
+//what should execute?
+var i=0;
+setTimeout(function(){
+i++;
+console.log(++i);
+}, 300);
+console.log(i++);
