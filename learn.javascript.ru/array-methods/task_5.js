@@ -1,5 +1,6 @@
 var arr = [1, -2, 15, 2, 0, 8];
 
+// compare function for sort of numeric = comporator
 console.log(arr);
 function compare(a, b) {
     console.log( a + ' and ' + b);

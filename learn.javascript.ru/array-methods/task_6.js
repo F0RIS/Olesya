@@ -1,7 +1,7 @@
 var obj = {
 	className: 'open menu'
 }
-
+// added class if it doesnt exist in obj
 function addClass(obj,str) {
     var ar = obj.className.split(' ');
     var add = true;
@@ -11,6 +11,7 @@ function addClass(obj,str) {
         }
     }
     if (add) {
+        // added class with nbsp;
         var class_name_arr = obj.className + " " + str;
         obj.className = class_name_arr;
     }
