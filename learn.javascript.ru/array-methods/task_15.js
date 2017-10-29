@@ -4,14 +4,14 @@ var result = [];
 
 function aclean(arr) {
 
-    for(var i=0; i<arr.length; i++) {
+    for (var i = 0; i < arr.length; i++) {
         var sorted = arr[i].toLowerCase().split('').sort().join("");
 
         var key = sorted;
         obj[key] = arr[i];
     }
 
-    for(key in obj) {
+    for (key in obj) {
         result.push(obj[key]);
     }
     return result;

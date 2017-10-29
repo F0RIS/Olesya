@@ -1,12 +1,12 @@
 var list = {
     value: 1,
     next: {
-        value:2,
+        value: 2,
         next: {
-            value:3,
+            value: 3,
             next: {
-                value:4,
-                next:null
+                value: 4,
+                next: null
             }
         }
     }
@@ -25,7 +25,7 @@ var list = {
 //     var node = list;
 //     console.log(node.value);
 //     node = node.next;
-    
+
 //     if(node){
 //         printList(node);
 //     } else {
@@ -45,9 +45,9 @@ var list = {
 
 function printReverseList(list) {
 
-    if(list.next) {
-       printReverseList(list.next);
-       console.log(list.value);
+    if (list.next) {
+        printReverseList(list.next);
+        console.log(list.value);
     } else {
         console.log(list.value);
     }

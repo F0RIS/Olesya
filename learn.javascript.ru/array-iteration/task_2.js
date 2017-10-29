@@ -1,6 +1,6 @@
 // return new array of partial sum
 
-arr = [1,2,3,4,5];
+arr = [1, 2, 3, 4, 5];
 // sum - initialValue in reduce method
 // in this example equal 0
 // function getSum(sum, current) {

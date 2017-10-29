@@ -1,4 +1,4 @@
-var arr = [ "don't", "Anton", "get angry"];
+var arr = ["don't", "Anton", "get angry"];
 var arrSorted;
 
 function sortArr() {

@@ -1,12 +1,12 @@
 var obj = {
-	className: 'open menu'
+    className: 'open menu'
 }
 // added class if it doesnt exist in obj
-function addClass(obj,str) {
+function addClass(obj, str) {
     var ar = obj.className.split(' ');
     var add = true;
-    for(var i=0; i<ar.length; i++){
-        if(ar[i] === str) {
+    for (var i = 0; i < ar.length; i++) {
+        if (ar[i] === str) {
             add = false;
         }
     }

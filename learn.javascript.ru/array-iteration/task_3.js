@@ -1,8 +1,8 @@
-var arr = [1,2,3,4,5];
+var arr = [1, 2, 3, 4, 5];
 
- function getSums(arr) {
-   var result = [];
-   var newArr = arr.reduce(function(sum, curItem) {
+function getSums(arr) {
+    var result = [];
+    var newArr = arr.reduce(function (sum, curItem) {
         result.push(sum);
         return sum + curItem;
     });
