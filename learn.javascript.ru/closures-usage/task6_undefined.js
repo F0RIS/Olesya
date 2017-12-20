@@ -1,6 +1,7 @@
 function sayHi() {
-	for(var i = 0; i<arguments.length; i++) {
-		console.log("смотри "+arguments[i]);
+
+	for(var i = 0; i < arguments.length; i++) {
+		console.log("смотри " + arguments[i]);
 	}
 }
 
@@ -11,7 +12,7 @@ function sayBye() {
 	var a = arguments.pop(); //doesnt work - argiments - object with length
 }
 
-sayBye(1);
+sayBye();
 // I liked this task
 //what should execute?
 var i=0;
@@ -20,3 +21,6 @@ i++;
 console.log(++i);
 }, 300);
 console.log(i++);
+
+
+process.exit(1);
