@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function getSecondToday() {
     var date = new Date();
     console.log(date.getSeconds());
@@ -5,6 +6,7 @@ function getSecondToday() {
 }
 
 getSecondToday();
+=======
 
 function getSecondsToday() {
     var now = new Date();
@@ -36,3 +38,4 @@ function getSecToTomorrow() {
 console.log(getSecToTomorrow());
 // console.log("Seconds have passed today is " + getSecondsToday()); // (3600 * 10)
 process.exit(1);
+>>>>>>> 3028be64a03768853641299d3c831e91f462e98b
