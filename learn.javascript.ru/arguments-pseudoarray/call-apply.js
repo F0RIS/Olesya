@@ -10,7 +10,7 @@ function sumArg2() {
         return a + b;
     })
 }
-//  console.log(sumArg(1,2,3,5));
+ console.log(sumArg(1,2,3,5));
 //  console.log(sumArg2(1,2,3,5));
 
 //  task1

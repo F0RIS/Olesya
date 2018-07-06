@@ -10,6 +10,7 @@
 
 Function.prototype.defer = function (ms) {
         
+    // var f = this;
     return function (...arg) {       
         console.log(arg);
          
