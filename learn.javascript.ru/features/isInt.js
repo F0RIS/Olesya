@@ -4,4 +4,6 @@ function isInt(num) {
 
 console.log(isInt(5));
 console.log(isInt(-0.5));
+
+
 console.log(isInt(1.5));

@@ -8,5 +8,4 @@ new Promise((resolve) => {
 
 console.log(3);
 
-Promise.resolve().then(() => console.log(4))
-  
+Promise.resolve().then(() => console.log(4));
