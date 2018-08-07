@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script> 
+        const url1 = 'https://img.huffingtonpost.com/asset/566991a11600002a0094c275.jpeg?cache=hyn9akyohb&ops=scalefit_720_noupscale';
+        const url2 = 'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350';
+        const url3 = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp4o2cbcE_ZTX_3lCHyTGzcMNGUb9V8RwxLmz0HHqXKTdxR1_KQw';
+
+        function loadImg(url) {
+            return new Promise((resolve, reject) => {
+                var img = new Image();
+                img.height = 200;
+                img.src = url;
+
+                document.body.appendChild(img);
+
+                img.addEventListener('load', function () {
+                    resolve();
+                });
+            })
+        }
+
+        loadImg(url1)
+            .then(() => { return loadImg(url2) })
+            .then(() => { return loadImg(url3) });
+    </script>
+</body>
+
+</html>
